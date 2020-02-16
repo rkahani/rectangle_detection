@@ -4,7 +4,7 @@
 `$ sudo docker build -t ubuntu_opencv:1604_420 .`
 
 ## 2) Running the container:
-`$ sudo docker run -it -v ~/red_rectangle_detector:/home/workspace --name det ubuntu_opencv:1604_420`
+`$ sudo docker run -it -v ~/rectangle_detection:/home/workspace --name det ubuntu_opencv:1604_420`
 
 ## 3) Building the source code:
 ```
