@@ -1,5 +1,11 @@
 
 # Setup
+## 0) Clone:
+```
+$ git clone https://github.com/rkahani/rectangle_detection.git
+$ cd rectangle_detection
+```
+
 ## 1) Building the docker image:
 `$ sudo docker build -t ubuntu_opencv:1604_420 .`
 
