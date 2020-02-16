@@ -9,6 +9,9 @@ $ cd rectangle_detection
 ## 1) Building the Docker image:
 `$ sudo docker build -t ubuntu_opencv:1604_420 .`
 
+## Alternatively:
+` docker pull rkahani/ubuntu_opencv:1604_420 `
+
 ## 2) Running the container:
 `$ sudo docker run -it -v ~/rectangle_detection:/home/workspace --name det ubuntu_opencv:1604_420`
 
