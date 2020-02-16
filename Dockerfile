@@ -1,5 +1,5 @@
 FROM ubuntu:xenial
-RUN apt-get update && apt-get install build-essential -y \
+RUN apt-get update && apt-get install -y build-essential \
     wget \
     cmake \
     git \
@@ -17,8 +17,7 @@ RUN apt-get update && apt-get install build-essential -y \
     libdc1394-22-dev
 RUN apt-get install -y unzip && \
 	wget https://github.com/opencv/opencv/archive/4.2.0.zip && \
-	unzip 4.2.0.zip && \
-    cd opencv-4.2.0
+	unzip 4.2.0.zip
 RUN cd opencv-4.2.0 && \
 	mkdir build && \
     cd build && \

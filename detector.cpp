@@ -7,10 +7,10 @@ using namespace cv;
 using namespace std;
 using std::string;
 
-const Scalar red_low(0, 128, 128);
-const Scalar red_high(20, 255, 255);
-const Scalar blue_low(110, 128, 128);
-const Scalar blue_high(130, 255, 255);
+const Scalar red_low(0, 128, 128);//0
+const Scalar red_high(40, 255, 255);
+const Scalar blue_low(80, 128, 128);//120
+const Scalar blue_high(140, 255, 255);
 const Scalar white_low(0, 0, 128);
 const Scalar white_high(255, 20, 255);
 
@@ -52,13 +52,13 @@ void find_rectangles(Mat im_hsv, Scalar low, Scalar high, Point min_size, Point 
 		int width = rect.br().x - rect.tl().x;
 		int height = rect.br().y - rect.tl().y;
 		// filtering
-		if ( width < min_size.x ||  width > max_size.x || height < min_size.y || height > max_size.y || contourArea(contours[c]) < width * height * 0.9) continue;
+		if ( width < min_size.x ||  width > max_size.x || height < min_size.y || height > max_size.y || contourArea(contours[c]) < width * height * 0.6) continue;
 		points.push_back(rect.tl());
 		points.push_back(rect.br());
-	}	
-	data d(points, "Rectangle");
-	if (points.size() > 0)
+		data d(points, "Rectangle");
 		d.write(fs);
+		points.clear();
+	}
 }
 
 void find_circles(Mat im_hsv, Scalar low, Scalar high, int min_r, int max_r, FileStorage& fs)
@@ -77,10 +77,10 @@ void find_circles(Mat im_hsv, Scalar low, Scalar high, int min_r, int max_r, Fil
 		if ( radius < min_r ||  radius > max_r || contourArea(contours[c]) < 3.14 * radius * 2 * 0.9) continue;
 		points.push_back(Point(ceil(center.x-radius), ceil(center.y-radius)));
 		points.push_back(Point(ceil(center.x+radius), ceil(center.y+radius)));
-	}	
-	data d(points, "Circle");
-	if (points.size() > 0)
+		data d(points, "Circle");
 		d.write(fs);
+		points.clear();
+	}	
 }
 
 
