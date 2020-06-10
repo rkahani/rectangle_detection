@@ -12,7 +12,7 @@ const Scalar red_high(40, 255, 255);
 const Scalar blue_low(80, 128, 128);//120
 const Scalar blue_high(140, 255, 255);
 const Scalar white_low(0, 0, 128);
-const Scalar white_high(255, 20, 255);
+const Scalar white_high(180, 20, 255);
 
 struct data
 {
