@@ -74,7 +74,7 @@ void find_circles(Mat im_hsv, Scalar low, Scalar high, int min_r, int max_r, Fil
 	{
 		minEnclosingCircle(contours[c], center, radius);
 		// filtering
-		if ( radius < min_r ||  radius > max_r || contourArea(contours[c]) < 3.14 * radius * 2 * 0.9) continue;
+		if ( radius < min_r ||  radius > max_r || contourArea(contours[c]) < 3.14 * (radius ** 2) * 0.9) continue;
 		points.push_back(Point(ceil(center.x-radius), ceil(center.y-radius)));
 		points.push_back(Point(ceil(center.x+radius), ceil(center.y+radius)));
 		data d(points, "Circle");
